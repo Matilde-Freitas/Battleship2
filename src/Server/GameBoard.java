@@ -15,9 +15,9 @@ public class GameBoard {
 	char ship = 'S';
 	char hit = 'X';
 	char miss = 'o';
-	String resultMiss = "Miss";
-	String resultHit = "Hit";
-	String resultAlreadyHit = "AlreadyHit";
+	String resultMiss = "MISS";
+	String resultHit = "HIT";
+	String resultAlreadyHit = "ALREADY_HIT";
 
 	public GameBoard(int row, int col, int numShips) {
         this.col = col;

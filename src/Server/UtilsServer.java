@@ -11,6 +11,7 @@ public class UtilsServer {
 		
 	}
 	
+	
 	public static String checkBoardMaxMin(int numS, int row, int col, String command)
 	{
 		int min = 0;
@@ -41,7 +42,7 @@ public class UtilsServer {
 		Integer.toString(min);
 		Integer.toString(max);
 		
-		String minMax= Integer.toString(min) + ";"+Integer.toString(max);
+		String minMax= Integer.toString(min) + ";" + Integer.toString(max);
 		
 		return minMax;
 	}
@@ -94,7 +95,7 @@ public class UtilsServer {
 		}
 		catch (Exception e)
 		{
-			if (OGvalue.equals("quit")) {
+			if (OGvalue.equals("quit") || OGvalue.equals("exit")) {
 				StriValue = "EXIT_GAME:" + OGvalue;
 			}
 			else {
