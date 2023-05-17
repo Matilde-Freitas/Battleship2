@@ -178,7 +178,7 @@ public class ClientThread {
 							GameBoard clientBoard = new GameBoard(row, col, numShips);
 
 							while (val_newBoard) {
-								clientBoard.creatClientBoard();
+								clientBoard.createClientBoard();
 
 								String rcvValidBoard = in.readUTF();
 
