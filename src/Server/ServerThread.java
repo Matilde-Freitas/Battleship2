@@ -2,10 +2,14 @@ package Server;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerThread {
 	public static void main(String[] args) {
 		int id = 1;
+
+		// Criacao da base de dados com o perfil de cada utilizador
+		ArrayList<User> database = new ArrayList<User>();
 
 		try {
 			// Criar ServerSocket para escutar na porta 12346
@@ -18,7 +22,7 @@ public class ServerThread {
 				System.out.println("Recebi uma nova ligação...");
 				// Delegar a comunicação com o cliente num thread e voltar a esperar por outro
 				// cliente
-				Thread c = new Thread(new ConnectionHandler(clientSocket, id));
+				Thread c = new Thread(new ConnectionHandler(clientSocket, id, database));
 				c.start();
 				id++;
 			}

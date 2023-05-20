@@ -9,6 +9,9 @@ public class UtilsClient {
 	static Scanner scan = new Scanner(System.in);
 
 	public static boolean checkValue(String rcvValue) {
+		// Interpreta a confirmacao recebida e devolve um booleano que permite terminar
+		// o ciclo da variavel respetiva
+
 		boolean val = true;
 
 		if (rcvValue.split(":")[0].startsWith("INVALID_SIZE")) {
@@ -30,13 +33,17 @@ public class UtilsClient {
 
 	private static final DecimalFormat df = new DecimalFormat("0.00");
 
-	public static void printStats(String stats) {
+	public static void printStats(String rcvStats) {
+		// Recebe o resultado de cada partida e o respetivo numero de jogadas e imprime
+		// as estatisticas totais
 
+		// Criacao de duas arrayLists para formatacao dos resultados
 		ArrayList<String> resultsArray = new ArrayList<String>();
 		ArrayList<Integer> playsArray = new ArrayList<Integer>();
 
-		if (stats.length() != 0) {
+		try { // Copia as estatisticas recebidas para as ArrayLists criadas
 
+			String stats = rcvStats.split("=")[1];
 			String resultsStri = stats.split(":")[0];
 			String playsStri = stats.split(":")[1];
 
@@ -48,6 +55,8 @@ public class UtilsClient {
 				int playsInt = Integer.parseInt(plays);
 				playsArray.add(playsInt);
 			}
+		} catch (Exception e) { // Se ainda nao houver partidas devolve uma string vazia
+			rcvStats = "";
 		}
 
 		System.out.println("------------ STATS ------------");
